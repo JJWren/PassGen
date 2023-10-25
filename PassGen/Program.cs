@@ -12,8 +12,11 @@ Console.WriteLine(PasswordFactory.GenerateValidPasswordFromDefaultRuleset());
 
 Console.WriteLine("\n" +
     "Generating 5 Passwords Via Default Ruleset:".ToBannerString());
-Console.WriteLine(PasswordFactory.GenerateMultipleValidPasswordsFromDefaultRuleset(5).ToListString());
-
+List<string> passwordList = PasswordFactory.GenerateMultipleValidPasswordsFromDefaultRuleset(5);
+foreach (string password in passwordList)
+{
+    Console.WriteLine($"\t{password}");
+}
 
 Console.WriteLine("\n" +
     "Generating a Single Password Via Custom Ruleset:".ToBannerString());
