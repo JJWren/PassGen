@@ -1,20 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace PassGen.Classes
 {
+    /// <summary>
+    /// Contains predetermined regex for validating each password component
+    /// <br/>and ultimately determining whether a password meets its ruleset's criteria.
+    /// </summary>
     public class PasswordValidator
     {
+        /// <summary>
+        /// Regex for lowercase character set.
+        /// </summary>
         public readonly string RegexLowercase = @"[a-z]";
+
+        /// <summary>
+        /// Regex for uppercase character set.
+        /// </summary>
         public readonly string RegexUppercase = @"[A-Z]";
+
+        /// <summary>
+        /// Regex for numeric character set.
+        /// </summary>
         public readonly string RegexNumeric = @"[\d]";
+
+        /// <summary>
+        /// Regex for special character set.
+        /// </summary>
         public readonly string RegexSpecial = @"[-~`!@#$%^&*_+=|:;',.?]";
 
-        public bool IsPasswordIsValidAgainstDefaultRuleset(Generator generator)
+        /// <summary>
+        /// Runs validation of a <see cref="Generator.PasswordToBeValidated"/> against that generator's ruleset.
+        /// </summary>
+        /// <param name="generator"></param>
+        /// <returns><c>true</c> if the password successfully passes validation; otherwise, <c>false</c>.</returns>
+        public bool IsPasswordIsValidAgainstRuleset(Generator generator)
         {
             if (generator.PasswordToBeValidated == null)
             {

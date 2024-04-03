@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Cryptography;
 
 namespace PassGen.Classes
 {
@@ -12,16 +7,46 @@ namespace PassGen.Classes
     /// </summary>
     public class Generator
     {
+        /// <summary>
+        /// Whitelist of numeric characters to be used.
+        /// </summary>
         public string NumericCharacters { get; } = "0123456789";
+
+        /// <summary>
+        /// Whitelist of uppercase characters to be used.
+        /// </summary>
         public string UppercaseCharacters { get; } = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        /// <summary>
+        /// Whitelist of lowercase characters to be used.
+        /// </summary>
         public string LowercaseCharacters { get; } = "abcdefghijklmnopqrstuvwxyz";
+
+        /// <summary>
+        /// Whitelist of special characters to be used.
+        /// </summary>
         public string SpecialCharacters { get; } = @"-~`!@#$%^&*_+=|:;',.?";
+
+        /// <summary>
+        /// A <see cref="PasswordRuleset"/> that defines how the passwords will be generated.
+        /// </summary>
         public PasswordRuleset Ruleset { get; set; } = new PasswordRuleset();
+
+        /// <summary>
+        /// The generated password before it is validated.
+        /// <br/>Created by the <see cref="GeneratePassword"/> method.
+        /// </summary>
         public string? PasswordToBeValidated { get; set; } = null;
+
+        /// <summary>
+        /// The validated password. It is derived from the <see cref="PasswordToBeValidated"/>
+        /// <br/>after is has gone through validation via the <see cref="PasswordValidator"/> class.
+        /// </summary>
         public string? ValidPassword { get; set; } = null;
 
         /// <summary>
-        /// Generates a random, unvalidated password based on the password ruleset.
+        /// Generates a random, unvalidated password based on the password ruleset -- <see cref="Ruleset"/>.
+        /// <br/>If the ruleset is not defined, the default ruleset will be used.
         /// </summary>
         /// <returns>A randomly generated password that requires validation.</returns>
         public void GeneratePassword()
@@ -79,9 +104,9 @@ namespace PassGen.Classes
         }
 
         /// <summary>
-        /// Generates a character set (determined by the <seealso cref="Ruleset"/> that a password can be generated from.
+        /// Generates a character set determined by the <seealso cref="Ruleset"/> that a password can be generated from.
         /// </summary>
-        /// <returns><seealso cref="string"/>Allowed character set.</returns>
+        /// <returns>Allowed character set as a <seealso cref="string"/>.</returns>
         private string GenerateAllowedCharacterSet()
         {
             string characterSet = "";
