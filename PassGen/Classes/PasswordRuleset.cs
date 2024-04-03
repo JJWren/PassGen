@@ -1,21 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PassGen.Classes
+﻿namespace PassGen.Classes
 {
+    /// <summary>
+    /// Determines the password criteria that must be met (min/max length, allowable character types, etc).
+    /// </summary>
     public class PasswordRuleset
     {
+        /// <summary>
+        /// The max allowable identical characters used consecutively (ex: "11", "aa", "www").
+        /// </summary>
         public int MaximumIdenticalConsecutiveCharacters { get; set; } = 2;
+
+        /// <summary>
+        /// Minimum character length of the password.
+        /// </summary>
         public int PasswordLengthMinimum { get; set; } = 8;
+
+        /// <summary>
+        /// Maximum character length of the password.
+        /// </summary>
         public int PasswordLengthMaximum { get; set; } = 64;
+
+        /// <summary>
+        /// Dictates if the password will include lowercase characters.
+        /// </summary>
         public bool IncludeLowercase { get; set; } = true;
+
+        /// <summary>
+        /// Dictates if the password will include uppercase characters.
+        /// </summary>
         public bool IncludeUppercase { get; set; } = true;
+
+        /// <summary>
+        /// Dictates if the password will include numeric characters.
+        /// </summary>
         public bool IncludeNumeric { get; set; } = true;
+
+        /// <summary>
+        /// Dictates if the password will include special characters.
+        /// </summary>
         public bool IncludeSpecial { get; set; } = true;
+
+        /// <summary>
+        /// Dictates if the password will include spaces.
+        /// </summary>
         public bool IncludeSpaces { get; set; } = false;
+
+        /// <summary>
+        /// Dictates the length of the password.
+        /// </summary>
         public int DesiredLengthOfPassword { get; set; } = 12;
 
         /// <summary>
