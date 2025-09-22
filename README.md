@@ -1,6 +1,6 @@
 # PassGen
 
-This is a password generation tool I created as a fun project. It's current state is left as a console application to quickly showcase a few possible outputs, but the long term goal is to make it into a library.
+This is a password generation tool I created as a fun project. By no means should this be used in a live application as more secure measures should be taken.
 
 ## Examples
 ### Using default ruleset:
